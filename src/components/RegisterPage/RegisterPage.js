@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
-
 class RegisterPage extends Component {
   state = {
-    firstLast:'',
     username: '',
     password: '',
+    first_name: '',
+    last_name: ''
   };
 
   registerUser = (event) => {
@@ -15,14 +15,16 @@ class RegisterPage extends Component {
       this.props.dispatch({
         type: 'REGISTER',
         payload: {
-          name: this.state.firstLast,
           username: this.state.username,
           password: this.state.password,
+          first_name: this.state.first_name,
+          last_name: this.state.last_name
         },
       });
     } else {
-      this.props.dispatch({type: 'REGISTRATION_INPUT_ERROR'});
+      this.props.dispatch({type: 'TEAM_REGISTRATION_INPUT_ERROR'});
     }
+    this.props.history.push('/CreateTeam')
   } // end registerUser
 
   handleInputChangeFor = propertyName => (event) => {
@@ -45,13 +47,24 @@ class RegisterPage extends Component {
         <form onSubmit={this.registerUser}>
           <h1>Register User</h1>
           <div>
-            <label htmlFor="firstLast">
-              First name and Last name:
+            <label htmlFor="first_name">
+              First Name:
               <input
                 type="text"
-                name="firstLast"
-                value={this.state.firstLast}
-                onChange={this.handleInputChangeFor('firstLast')}
+                name="first_name"
+                value={this.state.first_name}
+                onChange={this.handleInputChangeFor('first_name')}
+              />
+            </label>
+          </div>
+          <div>
+            <label htmlFor="last_name">
+              Last Name:
+              <input
+                type="text"
+                name="last_name"
+                value={this.state.last_name}
+                onChange={this.handleInputChangeFor('last_name')}
               />
             </label>
           </div>
@@ -86,19 +99,11 @@ class RegisterPage extends Component {
             />
           </div>
         </form>
-        <div>
-          <input
-            className="createTeam"
-            type="submit"
-            name="submit"
-            value="Register"
-          />
-        </div>
         <center>
           <button
             type="button"
             className="link-button"
-            onClick={() => {this.props.dispatch({type: 'SET_TO_LOGIN_MODE'})}}
+            onClick={() => { this.props.dispatch({ type: 'SET_TO_LOGIN_MODE'})}}
           >
             Login
           </button>

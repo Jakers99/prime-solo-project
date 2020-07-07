@@ -27,6 +27,8 @@ const registrationMessage = (state = '', action) => {
       return 'Choose a username and password!';
     case 'REGISTRATION_FAILED':
       return 'Oops! That didn\'t work. The username might already be taken. Try again!';
+    case 'TEAM_REGISTRATION_INPUT_ERROR':
+      return 'The input to register a new team isnt working'
     default:
       return state;
   }
