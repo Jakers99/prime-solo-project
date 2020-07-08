@@ -41,7 +41,17 @@ class CreateTeam extends Component {
                                     type='submit'
                                     name='submitTeamName'
                                     value='Create Team'
+                                    // onClick={() => { this.props.dispatch({ type: 'SET_TO_REGISTER_MODE' }) }}
                                 />
+                                <div>
+                                    <button
+                                        type="button"
+                                        className="link-button"
+                                        onClick={() => { this.props.dispatch({ type: 'SET_TO_LOGIN_MODE' }) }}
+                                    >
+                                        Login
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     </form>

@@ -2,12 +2,24 @@ import React, { Component } from 'react';
 import {connect} from 'react-redux';
 class RegisterPage extends Component {
   state = {
+    user:{
     username: '',
     password: '',
     first_name: '',
     last_name: ''
+    },
+    team: {
+      name: ''
+    },
+    captain: {
+      captain: true
+    }
   };
-
+  
+  state = {
+    captain : true,
+    notCaptain: false
+  }
   registerUser = (event) => {
     event.preventDefault();
 
@@ -15,10 +27,9 @@ class RegisterPage extends Component {
       this.props.dispatch({
         type: 'REGISTER',
         payload: {
-          username: this.state.username,
-          password: this.state.password,
-          first_name: this.state.first_name,
-          last_name: this.state.last_name
+          user: this.state.user,
+          team: this.state.team,
+          captain: this.state.captain
         },
       });
     } else {
@@ -32,7 +43,15 @@ class RegisterPage extends Component {
       [propertyName]: event.target.value,
     });
   }
-
+  registerTeam = (event) => {
+    event.preventDefault();
+    this.props.dispatch({
+      type: 'REGISTER_TEAM',
+      payload: this.state.name
+    });
+    // this.props.dispatch({ type: 'SET_TO_REGISTER_MODE' }) 
+    // this.props.history.push('/RegisterPage')
+  }
   render() {
     return (
       <div>
@@ -90,6 +109,29 @@ class RegisterPage extends Component {
               />
             </label>
           </div>
+          <div>
+            <label htmlFor="captain">Yes</label>
+            <input
+            type='checkbox'
+            name='captain'
+            value= {this.state.captain}
+            />
+            <label htmlFor="notCaptain">No</label>
+            <input
+              type='checkbox'
+              name='notCaptain'
+              value={this.state.notCaptain}
+            />
+          </div>
+          <label htmlFor='name'>
+            Team Name:
+            <input
+              type='text'
+              name='name'
+              value={this.state.name}
+              onChange={this.handleInputChangeFor('name')}
+            />
+          </label>
           <div>
             <input
               className="register"
