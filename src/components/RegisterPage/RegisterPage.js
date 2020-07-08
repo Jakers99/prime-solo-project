@@ -24,7 +24,7 @@ class RegisterPage extends Component {
     } else {
       this.props.dispatch({type: 'TEAM_REGISTRATION_INPUT_ERROR'});
     }
-    this.props.history.push('/CreateTeam')
+    this.props.history.push('/about')
   } // end registerUser
 
   handleInputChangeFor = propertyName => (event) => {

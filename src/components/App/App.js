@@ -7,7 +7,7 @@ import {
 } from 'react-router-dom';
 
 import {connect} from 'react-redux';
-
+import RegisterPage from '../RegisterPage/RegisterPage'
 import Nav from '../Nav/Nav';
 import Footer from '../Footer/Footer';
 
@@ -56,12 +56,17 @@ class App extends Component {
               component={InfoPage}
             />
             
-            <ProtectedRoute 
+            <Route 
             exact 
             path='/CreateTeam' 
             component={CreateTeam}
             />
 
+            <ProtectedRoute
+            exact
+            path='/RegisterPage'
+            component={RegisterPage}
+            />
             {/* If none of the other routes matched, we will show a 404. */}
             <Route render={() => <h1>404</h1>} />
           </Switch>

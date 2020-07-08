@@ -7,23 +7,17 @@ class CreateTeam extends Component {
     };
     registerTeam = (event) => {
         event.preventDefault();
-        console.log('this.state.name', this.state.name);
             this.props.dispatch({
                 type: 'REGISTER_TEAM',
                 payload: this.state.name
             });
-            // this.props.dispatch({ type: 'TEAM_REGISTRATION_INPUT_ERROR' });
-        console.log('Is this thing on?', this.state.name);
-        this.props.history.push('/about')
+        // this.props.dispatch({ type: 'SET_TO_REGISTER_MODE' }) 
+        this.props.history.push('/RegisterPage')
     }
         handleInputChangeFor = propertyName => (event) => {
-            console.log('whats the propertyName again?', propertyName);
-            
             this.setState({
                 [propertyName]: event.target.value,
             });
-            console.log('does the handleInputChangeFor even work?', event.target.value);
-            
         }
 
         render() {
