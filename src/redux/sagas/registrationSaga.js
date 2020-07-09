@@ -8,14 +8,15 @@ function* registerUser(action) {
     yield put({ type: 'CLEAR_REGISTRATION_ERROR' });
 
     // passes the username and password from the payload to the server
-
-    yield axios.post('/api/user/register', action.payload.user);
+    console.log('what is the aciton. payoad', action.payload);
+    
+    yield axios.post('/api/user/register', action.payload);
 
     // automatically log a user in after registration
     yield put({ type: 'LOGIN', payload: action.payload });
 
     if (action.payload.captain === true) {
-      yield axios.post('/api/user/CreateTeam', action.payload.team)
+      yield axios.post('/api/user/CreateTeam', action.payload)
     }
     // set to 'login' mode so they see the login screen
     // after registration or after they log out

@@ -22,13 +22,18 @@ router.post('/register', (req, res, next) => {
   const password = encryptLib.encryptPassword(req.body.password);
   const first_name = req.body.first_name;
   const last_name = req.body.last_name;
-
   const queryText = 'INSERT INTO "user" (username, password, first_name, last_name) VALUES ($1, $2, $3, $4) RETURNING id';
+
   pool.query(queryText, [username, password, first_name, last_name])
+  // pool.query(queryTextTwo, [teamName])
     .then(() => res.sendStatus(201))
     .catch(() => res.sendStatus(500));
 });
-
+router.post('/CreateTeam', (req,res)=> {
+  const teamName = req.body.team;
+  const queryTextTwo = 'INSERT INTO "team" (name) VALUES ($1)';
+  pool.query(queryTextTwo,[teamName])
+})
 // Handles login form authenticate/login POST
 // userStrategy.authenticate('local') is middleware that we run on this route
 // this middleware will run our POST if successful
@@ -44,16 +49,16 @@ router.post('/logout', (req, res) => {
   res.sendStatus(200);
 });
 
-router.post('/CreateTeam', (req,res) => {
-  console.log('in CreateTeam post', req.body.name);
-  const teamName = req.body.name
-  const queryText = 'INSERT INTO "team" (name) VALUES ($1)';
-  pool.query(queryText, [teamName])
-  .then(() => res.sendStatus(201))
-    .catch(error => {
-      console.log('error in character get', error)
-      res.sendStatus(500)
-    })
-})
+// router.post('/CreateTeam', (req,res) => {
+//   console.log('in CreateTeam post', req.body.name);
+//   const teamName = req.body.name
+//   const queryText = 'INSERT INTO "team" (name) VALUES ($1)';
+//   pool.query(queryText, [teamName])
+//   .then(() => res.sendStatus(201))
+//     .catch(error => {
+//       console.log('error in character get', error)
+//       res.sendStatus(500)
+//     })
+// })
 
 module.exports = router;

@@ -2,56 +2,52 @@ import React, { Component } from 'react';
 import {connect} from 'react-redux';
 class RegisterPage extends Component {
   state = {
-    user:{
     username: '',
     password: '',
     first_name: '',
-    last_name: ''
-    },
-    team: {
-      name: ''
-    },
-    captain: {
-      captain: true
-    }
+    last_name: '',
+    team: '',
+    captain: true
   };
   
-  state = {
-    captain : true,
-    notCaptain: false
-  }
   registerUser = (event) => {
     event.preventDefault();
-
+    console.log('in registerUser', this.state)
     if (this.state.username && this.state.password) {
       this.props.dispatch({
         type: 'REGISTER',
-        payload: {
-          user: this.state.user,
-          team: this.state.team,
-          captain: this.state.captain
-        },
+        payload: { 
+        username: this.state.username,
+        password: this.state.password,
+        first_name: this.state.first_name,
+        last_name: this.state.last_name,
+        team: this.state.team,
+        captain: this.state.captain
+        }
+        
       });
     } else {
       this.props.dispatch({type: 'TEAM_REGISTRATION_INPUT_ERROR'});
     }
-    this.props.history.push('/about')
+    // this.props.history.push('/about')
   } // end registerUser
 
   handleInputChangeFor = propertyName => (event) => {
+    console.log('event.target.value', event.target.value);
+    
     this.setState({
       [propertyName]: event.target.value,
     });
   }
-  registerTeam = (event) => {
-    event.preventDefault();
-    this.props.dispatch({
-      type: 'REGISTER_TEAM',
-      payload: this.state.name
-    });
+  // registerTeam = (event) => {
+  //   event.preventDefault();
+  //   this.props.dispatch({
+  //     type: 'REGISTER_TEAM',
+  //     payload: this.state.team
+  //   });
     // this.props.dispatch({ type: 'SET_TO_REGISTER_MODE' }) 
     // this.props.history.push('/RegisterPage')
-  }
+  
   render() {
     return (
       <div>
@@ -120,16 +116,16 @@ class RegisterPage extends Component {
             <input
               type='checkbox'
               name='notCaptain'
-              value={this.state.notCaptain}
+              // value={this.state.notCaptain}
             />
           </div>
-          <label htmlFor='name'>
+          <label htmlFor='team'>
             Team Name:
             <input
               type='text'
-              name='name'
-              value={this.state.name}
-              onChange={this.handleInputChangeFor('name')}
+              name='team'
+              value={this.state.team}
+              onChange={this.handleInputChangeFor('team')}
             />
           </label>
           <div>
