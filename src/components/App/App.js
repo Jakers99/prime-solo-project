@@ -18,6 +18,7 @@ import UserPage from '../UserPage/UserPage';
 import InfoPage from '../InfoPage/InfoPage';
 import CreateTeam from '../CreateTeam/CreateTeam';
 import './App.css';
+import CreateSchedule from '../CreateSchedule/CreateSchedule';
 
 class App extends Component {
   componentDidMount () {
@@ -66,6 +67,12 @@ class App extends Component {
             exact
             path='/RegisterPage'
             component={RegisterPage}
+            />
+
+            <ProtectedRoute
+            exact
+            path ='/CreateSchedule'
+            component={CreateSchedule}
             />
             {/* If none of the other routes matched, we will show a 404. */}
             <Route render={() => <h1>404</h1>} />
