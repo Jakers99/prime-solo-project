@@ -10,13 +10,22 @@ class CreateSchedule extends Component {
         time: '',
         jerseyColor: ''
     }
-    registerSchedule = () => {
-        console.log('register that schedule');
-        
+    registerSchedule = (event) => {
+        event.preventDefault();
+        console.log('register that schedule!!');
+        this.props.dispatch({
+            type: 'CREATE_SCHEDULE',
+            payload: {
+                opponentsName: this.state.opponentsName,
+                arena: this.state.arena,
+                date: this.state.date,
+                time: this.state.time,
+                jerseyColor: this.state.jerseyColor
+            }
+        });
+        console.log('this is the payload', this.state);
     }
     handleInputChangeFor = propertyName => (event) => {
-        console.log('event.target.value', event.target.value);
-
         this.setState({
             [propertyName]: event.target.value,
         });
@@ -27,11 +36,11 @@ class CreateSchedule extends Component {
                 <form onSubmit= {this.registerSchedule}>
                     <h1>Create Schedule</h1>
                         <div>
-                            <label htmlFor='opponentName'>
+                            <label htmlFor='opponentsName'>
                             Opponents Team Name:
                                 <input
                                 type='text'
-                                name='opponentName'
+                                name='opponentsName'
                                 value = {this.state.opponentsName}
                                 onChange={this.handleInputChangeFor('opponentsName')}
                                 />
@@ -45,7 +54,7 @@ class CreateSchedule extends Component {
                                 name='arena'
                                 value= {this.state.arena}
                                 onChange={this.handleInputChangeFor('arena')}
-                                />
+                            />
                             </label>
                         </div>
                         <div>
@@ -58,7 +67,7 @@ class CreateSchedule extends Component {
                                     min="2020-01-01" 
                                     max="2022-12-31"
                                     onChange={this.handleInputChangeFor('date')}
-                                    />
+                                />
                             </label>
                         </div>
                         <div>
@@ -69,7 +78,7 @@ class CreateSchedule extends Component {
                                     name= 'time'
                                     value= {this.state.time}
                                     onChange={this.handleInputChangeFor('time')}
-                                    />
+                                />
                             </label>
                         </div>
                         <div>
@@ -96,6 +105,14 @@ class CreateSchedule extends Component {
                                         onChange={this.handleInputChangeFor('jerseyColor')}
                                     />
                                 </label>
+                            <div>
+                                <input
+                                    className="register"
+                                    type="submit"
+                                    name="submit"
+                                    value="Add Game"
+                                />
+                            </div>
                         </div>
                         
                 </form>
