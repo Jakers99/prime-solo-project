@@ -20,7 +20,7 @@ import CreateTeam from '../CreateTeam/CreateTeam';
 import './App.css';
 import CreateSchedule from '../CreateSchedule/CreateSchedule';
 import JoinTeam from '../JoinTeam/JoinTeam';
-
+import TeamSchedule from '../Schedule/Schedule'
 class App extends Component {
   componentDidMount () {
     this.props.dispatch({type: 'FETCH_USER'})
@@ -57,6 +57,12 @@ class App extends Component {
               path="/info"
               component={InfoPage}
             />
+
+            <Route
+            exact
+            path='/Schedule'
+              component={TeamSchedule}
+              />
             
             <Route 
             exact 

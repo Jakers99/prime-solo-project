@@ -12,6 +12,8 @@ const UserPage = (props) => (
       Welcome, { props.user.first_name }!
     </h1>
     <p>Your ID is: {props.user.id}</p>
+    <h2>{props.user.first_name}'s Season Schedule</h2>
+    
     <LogOutButton className="log-in" />
   </div>
 );

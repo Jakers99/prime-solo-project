@@ -13,9 +13,16 @@ class JoinTeam extends Component {
         return(
             <div>
             <h1>Join a Team</h1>
+            
             <ul>
                     {this.props.reduxStore.JoinTeamReducer.map(item => (
-                        <li>{item.name}</li>
+                        <div>
+                        <p>{item.name} 
+                        <button> Join Team </button>
+                        
+                        </p>
+                        </div>
+                        
                     ))}
             </ul>
             </div>

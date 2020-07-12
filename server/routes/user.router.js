@@ -60,18 +60,6 @@ router.get('/team', (req,res) => {
   })
 })
 
-// router.post('/createteam', (req,res) => {
-//   console.log('in CreateTeam post');
-//   const teamName = req.body.name
-//   const queryText = 'INSERT INTO "team" (name) VALUES ($1)';
-//   pool.query(queryText, [teamName])
-//   .then(() => res.sendStatus(201))
-//     .catch(error => {
-//       console.log('error in character get', error)
-//       res.sendStatus(500)
-//     })
-// })
-
 router.post('/schedule', (req, res) => {
   console.log('in schedule.router', req.body);
   const opponentsTeam = req.body.opponentsName;
@@ -84,5 +72,15 @@ router.post('/schedule', (req, res) => {
     .then(() => res.sendStatus(201))
     .catch(() => res.sendStatus(500));
 });
+
+router.get('/teamSchedule', (req,res) => {
+  console.log('in teamSchedule ROUTER', req.body);
+  pool.query('SELECT * FROM "games";').then((result) => {
+    res.send(result.rows);
+  }).catch((error) => {
+    console.log('theres an error in /teamSchedule', error);
+    res.sendStatus(500);
+  })
+})
 
 module.exports = router;

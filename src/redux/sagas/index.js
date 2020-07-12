@@ -5,6 +5,7 @@ import userSaga from './userSaga';
 import addEvent from './CreateScheduleSaga';
 import joinTeam from './JoinTeamSaga';
 import teamRegister from './createTeam';
+import teamShedule from './TeamScheduleSaga'
 // import teamRegister from './createTeam'
 
 // rootSaga is the primary saga.
@@ -21,6 +22,7 @@ export default function* rootSaga() {
     userSaga(),
     addEvent(),
     joinTeam(),
-    teamRegister()
+    teamRegister(),
+    teamShedule()
   ]);
 }
