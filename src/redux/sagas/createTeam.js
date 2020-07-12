@@ -8,7 +8,7 @@ function* registerTeam(action) {
         // yield put({ type: 'CLEAR_REGISTRATION_ERROR' });
         console.log('in the try', action.payload);
         // passes the username and password from the payload to the server
-        yield axios.post('/api/user/CreateTeam',  {name: action.payload});
+        yield axios.post('api/user/CreateTeam', {name: action.payload});
         
         
         // automatically log a user in after registration

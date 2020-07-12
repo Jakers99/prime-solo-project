@@ -3,8 +3,6 @@ import axios from 'axios';
 
 function* createSchedule(action) {
     try {
-        console.log('this is the payload in the SAGA', action.payload);
-        
         console.log('action.payload:', action.payload);
         yield axios.post('api/user/schedule', action.payload);
         // yield put({type: 'POST_TEAM', payload: action.payload})

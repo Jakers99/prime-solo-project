@@ -30,7 +30,9 @@ router.post('/register', (req, res, next) => {
     .catch(() => res.sendStatus(500));
 });
 router.post('/CreateTeam', (req,res)=> {
-  const teamName = req.body.team;
+  console.log('in CreateTeam', req.body.name);
+  
+  const teamName = req.body.name;
   const queryTextTwo = 'INSERT INTO "team" (name) VALUES ($1)';
   pool.query(queryTextTwo,[teamName])
 })
@@ -58,17 +60,17 @@ router.get('/team', (req,res) => {
   })
 })
 
-router.post('/CreateTeam', (req,res) => {
-  console.log('in CreateTeam post', req.body.name);
-  const teamName = req.body.name
-  const queryText = 'INSERT INTO "team" (name) VALUES ($1)';
-  pool.query(queryText, [teamName])
-  .then(() => res.sendStatus(201))
-    .catch(error => {
-      console.log('error in character get', error)
-      res.sendStatus(500)
-    })
-})
+// router.post('/createteam', (req,res) => {
+//   console.log('in CreateTeam post');
+//   const teamName = req.body.name
+//   const queryText = 'INSERT INTO "team" (name) VALUES ($1)';
+//   pool.query(queryText, [teamName])
+//   .then(() => res.sendStatus(201))
+//     .catch(error => {
+//       console.log('error in character get', error)
+//       res.sendStatus(500)
+//     })
+// })
 
 router.post('/schedule', (req, res) => {
   console.log('in schedule.router', req.body);

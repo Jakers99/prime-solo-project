@@ -7,12 +7,14 @@ class CreateTeam extends Component {
     };
     registerTeam = (event) => {
         event.preventDefault();
+        console.log('this info is sending out', this.state.name);
+        
             this.props.dispatch({
                 type: 'REGISTER_TEAM',
                 payload: this.state.name
             });
         // this.props.dispatch({ type: 'SET_TO_REGISTER_MODE' }) 
-        this.props.history.push('/home')
+        // this.props.history.push('/home')
     }
         handleInputChangeFor = propertyName => (event) => {
             this.setState({
@@ -41,13 +43,15 @@ class CreateTeam extends Component {
                                     type='submit'
                                     name='submitTeamName'
                                     value='Create Team'
+                                    onChange={this.handleInputChangeFor('name')}
                                     // onClick={() => { this.props.dispatch({ type: 'SET_TO_REGISTER_MODE' }) }}
                                 />
                                 <div>
                                     <button
                                         type="button"
                                         className="link-button"
-                                        onClick={() => { this.props.dispatch({ type: 'SET_TO_LOGIN_MODE' }) }}
+                                        // onClick={() => { this.props.dispatch({ type: 'SET_TO_LOGIN_MODE' }) }}
+                                        value='Create Team'
                                     >
                                         Login
                                     </button>
