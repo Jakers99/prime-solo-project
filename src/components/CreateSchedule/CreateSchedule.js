@@ -23,7 +23,7 @@ class CreateSchedule extends Component {
                 jerseyColor: this.state.jerseyColor
             }
         });
-        console.log('this is the payload', this.state);
+        // console.log('this is the payload', this.state);
     }
     handleInputChangeFor = propertyName => (event) => {
         this.setState({
