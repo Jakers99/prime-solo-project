@@ -1,10 +1,17 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './components/App/App.js';
-import registerServiceWorker from './registerServiceWorker';
-import { createStore, combineReducers, applyMiddleware } from 'redux';
+import { put, takeEvery } from 'redux-saga/effects';
+import axios from 'axios';
 
-function* rootSaga() {
-    yield takeEvery('SET_BASKET', getFruit)
+function* getTeam(action){
+try{
+    const teamElement = yield axios.get('/api/user/team')
+    console.log(teamElement);
+    yield put ({ type: 'SET_TEAMS', payload: teamElement.data })
+} catch(error) {
+    console.log('FAILED GET:', error); 
+    }
+} 
+
+function* joinTeam() {
+    yield takeEvery('TEAM_GET', getTeam)
 }
+export default joinTeam;

@@ -19,6 +19,7 @@ import InfoPage from '../InfoPage/InfoPage';
 import CreateTeam from '../CreateTeam/CreateTeam';
 import './App.css';
 import CreateSchedule from '../CreateSchedule/CreateSchedule';
+import JoinTeam from '../JoinTeam/JoinTeam';
 
 class App extends Component {
   componentDidMount () {
@@ -61,6 +62,12 @@ class App extends Component {
             exact 
             path='/CreateTeam' 
             component={CreateTeam}
+            />
+
+            <Route
+            exact
+            path='/JoinTeam'
+            component={JoinTeam}
             />
 
             <ProtectedRoute

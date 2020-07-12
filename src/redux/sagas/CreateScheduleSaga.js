@@ -9,12 +9,14 @@ function* createSchedule(action) {
         // passes the username and password from the payload to the server
         console.log('action.payload:', action.payload);
 
-        yield axios.post('/schedule', action.payload);
+        yield axios.post('/api/user/schedule', action.payload);
 
         // automatically log a user in after registration
         // yield put({ type: 'LOGIN', payload: action.payload });
-
         
+        // const getSchedule= yield axios.get('/schedule');
+        // yield put({type: 'TEAM_GET', payload: getSchedule.data})
+    
             // yield axios.post('/api/user/CreateTeam', action.payload)
         
         // set to 'login' mode so they see the login screen
@@ -25,6 +27,8 @@ function* createSchedule(action) {
         yield put({ type: 'REGISTRATION_FAILED' });
     }
 }
+
+
 
 function* addEvent() {
     yield takeLatest('CREATE_SCHEDULE', createSchedule);

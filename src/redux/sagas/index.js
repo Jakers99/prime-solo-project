@@ -2,7 +2,8 @@ import { all } from 'redux-saga/effects';
 import loginSaga from './loginSaga';
 import registrationSaga from './registrationSaga';
 import userSaga from './userSaga';
-import addEvent from './CreateScheduleSaga'
+import addEvent from './CreateScheduleSaga';
+import joinTeam from './JoinTeamSaga';
 // import teamRegister from './createTeam'
 
 // rootSaga is the primary saga.
@@ -17,6 +18,7 @@ export default function* rootSaga() {
     loginSaga(),
     registrationSaga(),
     userSaga(),
-    addEvent()
+    addEvent(),
+    joinTeam()
   ]);
 }

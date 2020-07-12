@@ -14,6 +14,9 @@ console.log('in schedule.router', req.body);
         .then(() => res.sendStatus(201))
         .catch(() => res.sendStatus(500));
 });
+// router.get('/', (req, res) => {
+//     pool.query('SELECT * FROM "team"')
+// });
 
 
 module.exports = router;
