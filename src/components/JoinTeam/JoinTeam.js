@@ -7,6 +7,10 @@ class JoinTeam extends Component {
         type: 'TEAM_GET'
     })
 }
+    teamButton = () => {
+        console.log('clicked');
+        this.props.history.push('/info')
+    }
     render(){
         console.log('this.props', this.props.reduxStore);
         
@@ -17,8 +21,8 @@ class JoinTeam extends Component {
             <ul>
                     {this.props.reduxStore.JoinTeamReducer.map(item => (
                         <div>
-                        <p>{item.name} 
-                        <button> Join Team </button>
+                        <p>{item.name}
+                        <button onClick={this.teamButton}> Join Team </button>
                         
                         </p>
                         </div>

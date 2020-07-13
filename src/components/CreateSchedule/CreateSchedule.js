@@ -23,6 +23,7 @@ class CreateSchedule extends Component {
                 jerseyColor: this.state.jerseyColor
             }
         });
+        this.props.history.push('/Schedule')
         // console.log('this is the payload', this.state);
     }
     handleInputChangeFor = propertyName => (event) => {
@@ -30,6 +31,7 @@ class CreateSchedule extends Component {
             [propertyName]: event.target.value,
         });
     }
+    
     render(){
         return(
             <div>
@@ -110,7 +112,8 @@ class CreateSchedule extends Component {
                                     className="register"
                                     type="submit"
                                     name="submit"
-                                    value="Add Game"
+                                //     value="Add Game"
+                                onClick={this.linkToSchedule}
                                 />
                             </div>
                         </div>

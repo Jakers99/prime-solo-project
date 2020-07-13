@@ -1,16 +1,27 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+class TeamJoin extends Component {
 
-// This is one of our simplest components
-// It doesn't have local state, so it can be a function component.
-// It doesn't dispatch any redux actions or display any part of redux state
-// or even care what the redux state is, so it doesn't need 'connect()'
+  render(){
+    return(
+      <div>
+        <h1>Team Schedule</h1>
+        <ul>
+          <li>
+            <p><u>Game 1</u></p>
+            <div><b>Opponent:</b> Team Dahl</div>
+            <div><b>Date:</b> 2020-07-15</div>
+            <div><b>Time:</b> 20:00</div>
+            <div><b>Arena:</b> Vadnais Sports Center</div>
+            <div><b>Jersey Color:</b> home</div>
+          </li>
 
-const InfoPage = () => (
-  <div>
-    <p>
-      Info Page
-    </p>
-  </div>
-);
+        </ul>
+      </div>
+    )
+  }
+}
 
-export default InfoPage;
+
+
+export default TeamJoin;

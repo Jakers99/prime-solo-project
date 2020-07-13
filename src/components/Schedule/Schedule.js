@@ -7,7 +7,9 @@ class TeamSchedule extends Component {
         })
         
     }
-    
+    linkToCreate = () => {
+        this.props.history.push('/CreateSchedule')
+    }
         render() {
         return(
             <div>
@@ -23,8 +25,8 @@ class TeamSchedule extends Component {
                                 <div><b>Jersey Color: </b>{item.jersey}</div>
                                 <p></p>
                                 </li>
-
                         ))}
+                    <button className='log-in' onClick={this.linkToCreate}>Add a Game</button>
                     
                 </ul>
             </div>
