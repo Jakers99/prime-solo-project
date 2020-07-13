@@ -75,7 +75,8 @@ router.post('/schedule', (req, res) => {
 
 router.get('/teamSchedule', (req,res) => {
   console.log('in teamSchedule ROUTER', req.body);
-  pool.query('SELECT * FROM "games";').then((result) => {
+  pool.query(`SELECT * FROM "games" JOIN "team" ON "games"."id" = "team"."games_id" JOIN "user" on "team"."user_id" = "user"."id" WHERE "user"."id" = ${req.user.id};`)
+  .then((result) => {
     res.send(result.rows);
   }).catch((error) => {
     console.log('theres an error in /teamSchedule', error);
