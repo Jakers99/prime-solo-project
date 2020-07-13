@@ -106,18 +106,21 @@ class RegisterPage extends Component {
             </label>
           </div>
           <div>
+            <div>
+              Would you like to create a team? 
+            </div>
             <label htmlFor="captain">Yes</label>
             <input
             type='checkbox'
             name='captain'
             value= {this.state.captain}
             />
-            <label htmlFor="notCaptain">No</label>
+            {/* <label htmlFor="notCaptain">No</label>
             <input
               type='checkbox'
               name='notCaptain'
               // value={this.state.notCaptain}
-            />
+            /> */}
           </div>
           <label htmlFor='team'>
             Team Name:

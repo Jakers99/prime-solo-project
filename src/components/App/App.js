@@ -54,7 +54,7 @@ class App extends Component {
             they will see the info page instead. */}
             <ProtectedRoute
               exact
-              path="/info"
+              path="/team"
               component={InfoPage}
             />
 

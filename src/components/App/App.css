@@ -9,7 +9,7 @@ body {
 }
 
 form {
-    background-color: #dbd5d5;
+    background-color: #8b5252;
     width: 30%;
     height: 250px;
     margin: 20px auto;
@@ -23,7 +23,7 @@ input {
 }
 
 .log-in, .log-out, .register {
-  background-color: #00acb0;
+  background-color: #0070cc;
   border-radius: 4px;
   color: #f8f8f8;
   min-height: 50px;
@@ -33,7 +33,7 @@ input {
 }
 
 .log-in:hover, .log-out:hover, .register:hover {
-  background-color: #008183;
+  background-color: #0070cc;
 }
 
 /* This line makes the "Register" and "Login" buttons look like links */
