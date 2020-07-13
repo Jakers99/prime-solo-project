@@ -6,7 +6,7 @@ function* getShedule(action) {
         const teamElement = yield axios.get('/api/user/teamSchedule')
         console.log(teamElement);
         yield put({ type: 'SET_SCHEDULE', payload: teamElement.data })
-        yield put({ type: 'SCHEDULE_UNSELECT', payload: action.payload})
+        // yield put({ type: 'SCHEDULE_UNSELECT', payload: action.payload})
     } catch (error) {
         console.log('FAILED GET:', error);
     }

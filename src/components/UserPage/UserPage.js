@@ -11,10 +11,10 @@ const UserPage = (props) => (
     
   <div>
     <h1 id="welcome">
-      Welcome, { props.user.first_name }!
+      Welcome to Total Gongshow, { props.user.first_name }!
     </h1>
-    <p>Your ID is: {props.user.id}</p>
-    <h2>{props.user.first_name}'s Season Schedule</h2>
+    <p>Your player ID is: {props.user.id}</p>
+    <h2>Click here to logout of {props.user.first_name}'s profile!</h2>
 
     <LogOutButton className="log-in" />
   </div>

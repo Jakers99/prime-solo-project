@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 class TeamSchedule extends Component {
     state={
-        game:-6
+        game:''
     }
     componentDidMount(){
         this.props.dispatch({
@@ -20,6 +20,11 @@ class TeamSchedule extends Component {
     //         payload: unselectSchedule
     //     })
     // }
+    gameNumber = () => {
+        this.setState({
+            game: 1
+        })
+    }
         render() {
         return(
             <div>

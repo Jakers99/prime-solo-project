@@ -39,6 +39,19 @@ class RegisterPage extends Component {
       [propertyName]: event.target.value,
     });
   }
+  showInput = () => {
+    return(
+    <label>
+      Team Name:
+            <input
+        type='text'
+        name='team'
+        value={this.state.team}
+        onChange={this.handleInputChangeFor('team')}
+      />
+    </label> 
+    )
+  }
   // registerTeam = (event) => {
   //   event.preventDefault();
   //   this.props.dispatch({
@@ -114,15 +127,16 @@ class RegisterPage extends Component {
             type='checkbox'
             name='captain'
             value= {this.state.captain}
+            onClick={this.showInput}
             />
-            {/* <label htmlFor="notCaptain">No</label>
+            <label htmlFor="notCaptain">No</label>
             <input
               type='checkbox'
               name='notCaptain'
               // value={this.state.notCaptain}
-            /> */}
+            />
           </div>
-          <label htmlFor='team'>
+          {/* <label htmlFor='team'>
             Team Name:
             <input
               type='text'
@@ -130,7 +144,7 @@ class RegisterPage extends Component {
               value={this.state.team}
               onChange={this.handleInputChangeFor('team')}
             />
-          </label>
+          </label> */}
           <div>
             <input
               className="register"

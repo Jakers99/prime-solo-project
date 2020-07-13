@@ -3,10 +3,10 @@ const TeamSchedule = (state = [], action) => {
         console.log('Inside ShowSchedule', action.payload);
         return action.payload;
     }
-    else if (action.type === 'SCHEDULE_UNSELECT') {
-        console.log('Inside the JOINTEAM reducer', state);
-        return action.payload;
-    }
+    // else if (action.type === 'SCHEDULE_UNSELECT') {
+    //     console.log('Inside the JOINTEAM reducer', state);
+    //     return action.payload;
+    // }
     return state;
 }
 
